@@ -8,4 +8,11 @@ def factorial(n):
 	else:
 		return n * factorial(n-1)
 
-print("Value of 5! is %d"%(factorial(5)))
+intNumber = 5
+try:
+	intNumber = int(input("Enter the number: "))
+except ValueError:
+	print("Entered value is not valid integer number")
+	print("continue program with default value 5")
+
+print("Value of %d! is %d"%(intNumber, factorial(intNumber)))
