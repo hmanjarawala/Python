@@ -1,9 +1,9 @@
 """""
 Stack Implementation
 """""
-class stack:
+class Stack:
 	
-	def __init__(self, *args, **kwargs):
+	def __init__(self, *args):
 	    
 	    if len(args) == 1:		    
 	        foundOneArg = True;		    theOnlyArg = args[0]
@@ -26,6 +26,18 @@ class stack:
 	        return self.__data.pop(-1)
 	    except IndexError as e:
 	        return e
+	
+	def peek(self):
+		if not self.isEmpty():
+			return self.__data[self.size()-1]
+		else:
+			return -1
+	
+	def size(self):
+		return len(self.__data)
+		
+	def isEmpty(self):
+		return self.size() == 0
 		
 	def __repr__(self):
 		s1 = "|{}|\n".format("-"*len(str(max(self.__data))))
@@ -40,20 +52,20 @@ class stack:
 	    except IndexError as e:
 	        return e
 		
-		
-s = stack()
-s.push(34)
-s.push(59)
-s.push(21)
-print(s)
-print(s.pop())
-s.push(45)
-print(s)
-print(s.pop())
-print(s.pop())
-print(s.pop())
-print(s.pop())
-s = stack([23,45,67])
-print(s)
-print(s[2])
-print(s[3])
+if __name__ == '__main__':
+	s = Stack()
+	s.push(34)
+	s.push(59)
+	s.push(21)
+	print(s)
+	print(s.pop())
+	s.push(45)
+	print(s)
+	print(s.pop())
+	print(s.pop())
+	print(s.pop())
+	print(s.pop())
+	s = stack([23,45,67])
+	print(s)
+	print(s[2])
+	print(s[3])
