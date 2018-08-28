@@ -1,3 +1,6 @@
+"""""
+infix to Postfix Implementation without using Stack
+"""""
 def tokenGenerator(expression):
     nums=''
     prevOperator=''
