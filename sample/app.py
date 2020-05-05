@@ -7,4 +7,4 @@ Created on Mon May  4 14:45:27 2020
 
 from SampleApp import app
 
-app.run()
+app.run(port=5005, debug=True)

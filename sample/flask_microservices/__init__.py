@@ -45,6 +45,7 @@ class MicroServicesApp(Flask):
         """
 
         cwd = self.root_path
+        print('Root Path {}'.format(cwd))
         path = os.path.normpath(path)
         module_dir = os.path.join(cwd, path)
 
