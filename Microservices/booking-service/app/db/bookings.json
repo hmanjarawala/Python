@@ -1,0 +1,27 @@
+[
+  {
+      "user": "chris_rivers",
+      "date": "20151201",
+      "movies": [4]
+  },
+  {
+      "user": "garret_heaton",
+      "date": "20151201",
+      "movies": [4]
+  },
+  {
+      "user": "garret_heaton",
+      "date": "20151202",
+      "movies": [6]
+  },
+  {
+      "user": "dwight_schrute",
+      "date": "20151201",
+      "movies": [5, 4]
+  },
+  {
+      "user": "dwight_schrute",
+      "date": "20151205",
+      "movies": [2, 6]
+  }
+]
