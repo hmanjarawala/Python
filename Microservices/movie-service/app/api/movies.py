@@ -13,7 +13,7 @@ from app.api.models import Movie
 
 root_dir = os.path.dirname(os.path.realpath(__file__ + '/..'))
 
-with open("{}\\database\\movies.json".format(root_dir), "r") as f:
+with open("{}\\db\\movies.json".format(root_dir), "r") as f:
     fake_movie_db = json.load(f)
 
 movies = APIRouter()
