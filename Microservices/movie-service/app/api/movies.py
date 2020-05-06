@@ -9,7 +9,7 @@ import json
 from typing import List
 from fastapi import APIRouter, HTTPException
 
-from app.api.models import Movie
+from app.api.models import Movie, MovieIn
 
 root_dir = os.path.dirname(os.path.realpath(__file__ + '/..'))
 
@@ -22,25 +22,33 @@ movies = APIRouter()
 async def index():
     return fake_movie_db
 
+@movies.get('/{id}', response_model=Movie)
+async def find_movie(id: int):
+    if not any(movie['id'] == id for movie in fake_movie_db):
+        raise HTTPException(status_code=404, detail="Movie with given id not found")
+    index = [i for i,x in enumerate(fake_movie_db) if x["id"] == id][0]
+    return fake_movie_db[index]
+
 @movies.post('/', status_code=201)
-async def add_movie(payload: Movie):
+async def add_movie(payload: MovieIn):
     movie = payload.dict()
-    fake_movie_db.append(movie)
-    return {'id': len(fake_movie_db) - 1}
+    newId = [x["id"] for i,x in enumerate(fake_movie_db) if i == len(fake_movie_db)-1][0]
+    fake_movie_db.append({**movie, "id":newId+1})
+    return {'id': len(fake_movie_db)}
 
 @movies.put('/{id}')
-async def update_movie(id: int, payload: Movie):
+async def update_movie(id: int, payload: MovieIn):
     movie = payload.dict()
-    movies_length = len(fake_movie_db)
-    if 0 <= id <= movies_length:
+    if not any(movie['id'] == id for movie in fake_movie_db):
         raise HTTPException(status_code=404, detail="Movie with given id not found")
-    fake_movie_db[id] = movie
+    index = [i for i,x in enumerate(fake_movie_db) if x["id"] == id][0]
+    fake_movie_db[index] = {**movie, "id": id}
     return None
 
 @movies.delete('/{id}')
 async def delete_movie(id: int):
-    movies_length = len(fake_movie_db)
-    if 0 <= id <= movies_length:
+    if not any(movie['id'] == id for movie in fake_movie_db):
         raise HTTPException(status_code=404, detail="Movie with given id not found")
-    del fake_movie_db[id]
+    index = [i for i,x in enumerate(fake_movie_db) if x["id"] == id][0]
+    del fake_movie_db[index]
     return None

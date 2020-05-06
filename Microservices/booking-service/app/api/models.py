@@ -4,10 +4,13 @@ Created on Tue May  5 18:05:26 2020
 
 @author: Himanshu.Manjarawala
 """
-from Type import List
+from typing import List
 from pydantic import BaseModel
 
-class Booking(BaseModel):
+class BookingIn(BaseModel):
     user: str
     date: str
     movies: List[int]
+
+class Booking(BookingIn):
+    id: int

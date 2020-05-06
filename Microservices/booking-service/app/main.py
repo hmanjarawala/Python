@@ -9,6 +9,6 @@ from fastapi import FastAPI
 
 from app.api.bookings import bookings
 
-app = FastAPI()
+app = FastAPI(openapi_url="/api/v1/bookings/openapi.json", docs_url="/api/v1/bookings/docs")
 
 app.include_router(bookings, prefix='/api/v1/bookings', tags=['bookings'])
