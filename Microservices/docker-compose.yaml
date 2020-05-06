@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  movie_service:
+    build: ./movie-service
+    command: uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+    volumes:
+      - ./movie-service/:/app/
+    ports:
+      - 8001:8000
+
+  booking_service:
+    build: ./booking-service
+    command: uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+    volumes:
+      - ./booking-service/:/app/
+    ports:
+      - 8002:8000
+    environment:
+      - MOVIE_SERVICE_HOST_URL=http://movie_service:8000/api/v1/movies/
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "5001:80"
+      - "8081:8080"
+    volumes:
+      - ./nginx_config.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - movie_service
+      - booking_service
