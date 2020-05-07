@@ -29,23 +29,25 @@ async def find_movie(id: int):
     index = [i for i,x in enumerate(fake_movie_db) if x["id"] == id][0]
     return fake_movie_db[index]
 
-@movies.post('/', status_code=201)
+@movies.post('/', response_model=Movie, status_code=201)
 async def add_movie(payload: MovieIn):
     movie = payload.dict()
     newId = [x["id"] for i,x in enumerate(fake_movie_db) if i == len(fake_movie_db)-1][0]
-    fake_movie_db.append({**movie, "id":newId+1})
-    return {'id': len(fake_movie_db)}
+    response = {**movie, "id":newId+1}
+    fake_movie_db.append(response)
+    return response
 
-@movies.put('/{id}')
+@movies.put('/{id}', response_model=Movie)
 async def update_movie(id: int, payload: MovieIn):
     movie = payload.dict()
     if not any(movie['id'] == id for movie in fake_movie_db):
         raise HTTPException(status_code=404, detail="Movie with given id not found")
     index = [i for i,x in enumerate(fake_movie_db) if x["id"] == id][0]
-    fake_movie_db[index] = {**movie, "id": id}
-    return None
+    response = {**movie, "id": id}
+    fake_movie_db[index] = response
+    return response
 
-@movies.delete('/{id}')
+@movies.delete('/{id}', response_model=None)
 async def delete_movie(id: int):
     if not any(movie['id'] == id for movie in fake_movie_db):
         raise HTTPException(status_code=404, detail="Movie with given id not found")

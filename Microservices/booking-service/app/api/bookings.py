@@ -32,26 +32,28 @@ async def find_booking(id: int):
     return fake_booking_db[index]
         
 
-@bookings.post('/', status_code=201)
+@bookings.post('/', response_model=Booking, status_code=201)
 async def add_booking(payload: BookingIn):
     booking = payload.dict()
     for movie_id in payload.movies:
         if not is_movie_present(movie_id):
             raise HTTPException(status_code=404, detail="Movie with given id not found")
     newId = [x["id"] for i,x in enumerate(fake_booking_db) if i == len(fake_booking_db)-1][0]
-    fake_booking_db.append({'id': newId+1, **booking})
-    return {'id': len(fake_booking_db)}
+    response = {'id': newId+1, **booking}
+    fake_booking_db.append(response)
+    return response
 
-@bookings.put('/{id}')
+@bookings.put('/{id}', response_model=Booking)
 async def update_booking(id: int, payload: BookingIn):
     booking = payload.dict()
     if any(booking['id'] == id for booking in fake_booking_db):
         raise HTTPException(status_code=404, detail="Booking with given id not found")
     index = [i for i,x in enumerate(fake_booking_db) if x["id"] == id][0]
-    fake_booking_db[index] = {'id': id, **booking}
-    return None
+    response = {'id': id, **booking}
+    fake_booking_db[index] = response
+    return response
 
-@bookings.delete('/{id}')
+@bookings.delete('/{id}', response_model=None)
 async def delete_booking(id: int):
     if any(booking['id'] == id for booking in fake_booking_db):
         raise HTTPException(status_code=404, detail="Booking with given id not found")
