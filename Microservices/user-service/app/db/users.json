@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Himanshu",
+        "email": "himanshu.manjarawala@in.ey.com",
+        "bdate": "23-09-1981"
+    },
+    {
+        "id": 2,
+        "name": "Neelam",
+        "email": "neelam.tavhare@in.ey.com",
+        "bdate": "10-08-1992"
+    },
+    {
+        "id": 3,
+        "name": "Divya",
+        "email": "divya.deshpande@in.ey.com",
+        "bdate": "05-11-1995"
+    },
+]
