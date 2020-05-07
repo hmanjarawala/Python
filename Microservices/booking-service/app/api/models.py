@@ -8,7 +8,7 @@ from typing import List
 from pydantic import BaseModel
 
 class BookingIn(BaseModel):
-    user: str
+    user: int
     date: str
     movies: List[int]
 
