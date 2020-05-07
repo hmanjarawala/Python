@@ -5,58 +5,54 @@ Created on Tue May  5 19:40:50 2020
 @author: Himanshu.Manjarawala
 """
 
-import os
-import json
 from typing import List
 from fastapi import APIRouter, HTTPException
 
 from app.api.models import Booking, BookingIn
-from app.api.movieservices import is_movie_present
-
-root_dir = os.path.dirname(os.path.realpath(__file__ + '/..'))
-
-with open("{}\\db\\bookings.json".format(root_dir), "r") as f:
-    fake_booking_db = json.load(f)
+from app.api.services import is_movie_present, is_user_present
+from app.api import db_manager
 
 bookings = APIRouter()
 
 @bookings.get('/', response_model=List[Booking])
 async def index():
-    return fake_booking_db
+    return await db_manager.get_all_bookings()
 
 @bookings.get('/{id}', response_model=Booking)
 async def find_booking(id: int):
-    if any(booking['id'] == id for booking in fake_booking_db):
+    booking = await db_manager.get_booking(id)
+    if not booking:
         raise HTTPException(status_code=404, detail="Booking with given id not found")
-    index = [i for i,x in enumerate(fake_booking_db) if x["id"] == id][0]
-    return fake_booking_db[index]
+    return await db_manager.get_booking(id)
         
 
 @bookings.post('/', response_model=Booking, status_code=201)
 async def add_booking(payload: BookingIn):
-    booking = payload.dict()
+    
+    if not is_user_present(payload.user):
+        raise HTTPException(status_code=404, detail="User with given id not found")
+        
     for movie_id in payload.movies:
         if not is_movie_present(movie_id):
             raise HTTPException(status_code=404, detail="Movie with given id not found")
-    newId = [x["id"] for i,x in enumerate(fake_booking_db) if i == len(fake_booking_db)-1][0]
-    response = {'id': newId+1, **booking}
-    fake_booking_db.append(response)
-    return response
+            
+    newId = await db_manager.add_booking(payload)
+    return {'id': newId, **payload.dict()}
 
 @bookings.put('/{id}', response_model=Booking)
 async def update_booking(id: int, payload: BookingIn):
-    booking = payload.dict()
-    if any(booking['id'] == id for booking in fake_booking_db):
+    booking = await db_manager.get_booking(id)
+    
+    if not booking:
         raise HTTPException(status_code=404, detail="Booking with given id not found")
-    index = [i for i,x in enumerate(fake_booking_db) if x["id"] == id][0]
-    response = {'id': id, **booking}
-    fake_booking_db[index] = response
-    return response
+        
+    return await db_manager.update_booking(id, payload)
 
 @bookings.delete('/{id}', response_model=None)
 async def delete_booking(id: int):
-    if any(booking['id'] == id for booking in fake_booking_db):
+    booking = await db_manager.get_booking(id)
+    
+    if not booking:
         raise HTTPException(status_code=404, detail="Booking with given id not found")
-    index = [i for i,x in enumerate(fake_booking_db) if x["id"] == id][0]
-    del fake_booking_db[index]
-    return None
+        
+    return await db_manager.delete_booking(id)
