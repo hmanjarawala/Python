@@ -1,31 +1,31 @@
 [
   {
       "id": 1,
-      "user": "chris_rivers",
+      "user": 1,
       "date": "20151201",
       "movies": [4]
   },
   {
       "id": 2,
-      "user": "garret_heaton",
+      "user": 2,
       "date": "20151201",
       "movies": [4]
   },
   {
       "id": 3,
-      "user": "garret_heaton",
+      "user": 2,
       "date": "20151202",
       "movies": [6]
   },
   {
       "id": 4,
-      "user": "dwight_schrute",
+      "user": 3,
       "date": "20151201",
       "movies": [5, 4]
   },
   {
       "id": 5,
-      "user": "dwight_schrute",
+      "user": 3,
       "date": "20151205",
       "movies": [2, 6]
   }
