@@ -1,12 +1,13 @@
 import time
-
 import redis
 
 from flask import Flask
 
+print(__name__)
+
 app = Flask(__name__)
 
-cache = redis.Redis(host='redis', port=6379)
+cache = redis.StrictRedis(host='localhost', port=6379)
 
 def get_hit_count():
 
@@ -15,8 +16,11 @@ def get_hit_count():
     while True:
 
         try:
-
-            return cache.incr('hits')
+            if not cache.exists('hits'):                
+                cache.set('hits', 0)
+            cache.incr('hits')
+            count = (cache.get('hits')).decode('utf-8')
+            return count
 
         except redis.exceptions.ConnectionError as exc:
 
@@ -28,8 +32,8 @@ def get_hit_count():
 
             time.sleep(0.5)
 
-@app.route('/')
 
+@app.route('/')
 def hello():
 
     count = get_hit_count()
@@ -37,5 +41,6 @@ def hello():
     return 'Hello World! I have been seen {} times.'.format(count)
 
 if __name__ == "__main__":
-
-    app.run(host="0.0.0.0", debug=True)
+    print('Entered')
+    app.run(host = '0.0.0.0',port=8000)
+    print('Exited')
