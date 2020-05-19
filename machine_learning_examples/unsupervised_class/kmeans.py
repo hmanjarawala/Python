@@ -21,8 +21,8 @@ def plot_k_means(X, K, max_iter=20, beta=1.0, show_plots=False):
     M = X[initialize_centers]
     
 #    grid_width=5
-#    grid_height = max_iter / grid_width
-    random_colors = np.random.random((K, 3))
+#    grid_height = int(max_iter / grid_width)
+#    random_colors = np.random.random((K, 3))
 #    plt.figure()
     
     #cost = []
@@ -45,6 +45,7 @@ def plot_k_means(X, K, max_iter=20, beta=1.0, show_plots=False):
         
     
     if(show_plots):        
+        random_colors = np.random.random((K, 3))
         colors = R.dot(random_colors)
         plt.scatter(X[:,0], X[:,1], c=colors)
         plt.show()
