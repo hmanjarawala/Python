@@ -15,14 +15,26 @@ def d(u, v):
 def plot_k_means(X, K, max_iter=20, beta=1.0, show_plots=False):
     N, D = X.shape
     exponents = np.empty((N,K))
+    R = np.ones((N, K)) / K
     
     initialize_centers = np.random.choice(N, K, replace=False)
     M = X[initialize_centers]
+    
+#    grid_width=5
+#    grid_height = max_iter / grid_width
+    random_colors = np.random.random((K, 3))
+#    plt.figure()
     
     #cost = []
     k = 0
     for i in range(max_iter):
         k += 1
+        
+#        if(show_plots):        
+#            colors = R.dot(random_colors)
+#            plt.subplot(grid_width, grid_height, i=1)
+#            plt.scatter(X[:,0], X[:,1], c=colors)
+#            plt.show()
         
         for k in range(K):
             for n in range(N):
@@ -32,8 +44,7 @@ def plot_k_means(X, K, max_iter=20, beta=1.0, show_plots=False):
         M = R.T.dot(X) / R.sum(axis=0, keepdims=True).T
         
     
-    if(show_plots):
-        random_colors = np.random.random((K, 3))
+    if(show_plots):        
         colors = R.dot(random_colors)
         plt.scatter(X[:,0], X[:,1], c=colors)
         plt.show()
