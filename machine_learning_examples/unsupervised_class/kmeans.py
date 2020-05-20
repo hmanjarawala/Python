@@ -12,29 +12,31 @@ def d(u, v):
     diff = u-v
     return diff.dot(diff)
 
+def cost(X, R, M):
+    cost = 0
+    
+    for k in range(len(M)):
+#        Method 1
+#        for n in range(len(X)):
+#            cost += R[n,k] * d(M[k], X[n])
+#        
+#        Method 2
+        diff = X - M[k]
+        sq_distances = (diff * diff).sum(axis=1)
+        cost = (R[:,k]*sq_distances).sum()
+    return cost
+
 def plot_k_means(X, K, max_iter=20, beta=1.0, show_plots=False):
     N, D = X.shape
     exponents = np.empty((N,K))
-    R = np.ones((N, K)) / K
     
     initialize_centers = np.random.choice(N, K, replace=False)
     M = X[initialize_centers]
-    
-#    grid_width=5
-#    grid_height = int(max_iter / grid_width)
-#    random_colors = np.random.random((K, 3))
-#    plt.figure()
-    
-    #cost = []
+       
+    costs = []
     k = 0
     for i in range(max_iter):
         k += 1
-        
-#        if(show_plots):        
-#            colors = R.dot(random_colors)
-#            plt.subplot(grid_width, grid_height, i=1)
-#            plt.scatter(X[:,0], X[:,1], c=colors)
-#            plt.show()
         
         for k in range(K):
             for n in range(N):
@@ -43,6 +45,16 @@ def plot_k_means(X, K, max_iter=20, beta=1.0, show_plots=False):
         
         M = R.T.dot(X) / R.sum(axis=0, keepdims=True).T
         
+        c = cost(X, R, M)
+        costs.append(c)
+        if i>0:
+            if np.abs(costs[-2] - costs[-1]) < 1e-5:
+                break;
+            
+        if len(costs) > 1:
+            if costs[-1] > costs[-2]:
+                pass
+            
     
     if(show_plots):        
         random_colors = np.random.random((K, 3))
