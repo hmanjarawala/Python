@@ -1,6 +1,8 @@
 """""
 Stack Implementation
 """""
+from collections import stack
+
 class Stack:
 	
 	def __init__(self, *args):
