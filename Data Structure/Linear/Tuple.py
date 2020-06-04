@@ -32,7 +32,7 @@ for item in my_tuple:
 
 #Check if item exists in the tuple
 if "mango" in my_tuple:
-    print("Yes, mange exists in the fruit tuple")
+    print("Yes, mango exists in the fruit tuple")
 
 #Length of tuple
 print(len(my_tuple))
