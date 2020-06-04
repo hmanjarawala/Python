@@ -32,7 +32,7 @@ for item in my_list:
 
 #Check if item exists in the list
 if "mango" in my_list:
-    print("Yes, mange exists in the fruit list")
+    print("Yes, mango exists in the fruit list")
 
 #Length of List
 print(len(my_list))
