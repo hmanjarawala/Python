@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon May  4 14:57:03 2020
-
-@author: Himanshu.Manjarawala
-"""
-
 from flask import Blueprint, Flask, __version__
 from flask.globals import _request_ctx_stack
 from flask.helpers import send_from_directory
@@ -26,7 +19,7 @@ import os
 import sys
 
 
-FLASK_VERSION = 1.0 #float(__version__)
+FLASK_VERSION = 1.12#float(__version__)
 
 
 class MicroServicesApp(Flask):
@@ -45,7 +38,6 @@ class MicroServicesApp(Flask):
         """
 
         cwd = self.root_path
-        print('Root Path {}'.format(cwd))
         path = os.path.normpath(path)
         module_dir = os.path.join(cwd, path)
 
@@ -106,6 +98,7 @@ class Router(Blueprint):
 
 class MicroServicesLoader(DispatchingJinjaLoader):
     """Prevent template namespace collisions between modules.
+
     Additionally, prefer local templates to global templates.
     This means that global templates will no longer override local templates.
     """
@@ -130,14 +123,17 @@ class MicroServicesLoader(DispatchingJinjaLoader):
 
 def url(rule, view_func, name=None, methods=["GET"]):
     """Simple URL wrapper for `flask_microservices.Router`.
+
     Usage:
     ```
     from . import views
+
     url('/explore/', view_func=views.explore_home, name='explore_home', methods=['GET'])
     url('/explore/', view_func=views.explore_home, name='explore_home')
     url('/explore/', views.explore_home, 'explore_home')
     url('/explore/', views.explore_home)
     ```
+
     # Note that 'endpoint' is now 'name'.
     # Note also that the name and view_func parameters are reversed from that
     of a normal flask URL.

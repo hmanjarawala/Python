@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon May  4 14:57:50 2020
-
-@author: Himanshu.Manjarawala
-"""
-
 class InvalidModulePath(Exception):
   """Raised when an invalid module path is provided to
   `MicroServicesApp.register_urls()`
