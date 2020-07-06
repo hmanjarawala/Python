@@ -1,0 +1,272 @@
+/* CSS for app launcher page*/
+.shape.upload-shape.one {
+    --base: 0%;
+}
+
+.shape.upload-shape.two {
+    --base: 15%;
+}
+
+.shape.upload-shape.three {
+    --base: 30%;
+}
+
+.shape.upload-shape.four {
+    --base: 45%;
+}
+
+.shape.upload-shape.five {
+    --base: 60%;
+}
+
+.shape.upload-shape,
+.shape.upload-shape .inner {
+    clip-path: polygon(0 25px, 25px 0, 100% 0, 100% calc(100% - 20px), calc(var(--base) + 14%) calc(100% - 20px), calc(var(--base) + 11%) 100%, calc(var(--base) + 8%) 100%, calc(var(--base) + 5%) calc(100% - 20px), 0 calc(100% - 20px));
+}
+
+.shape.output-shape {
+    clip-path: polygon(0 25px, 25px 0, 100% 0, 100% calc(100% - 25px), calc(100% - 25px) 100%, 0 100%);
+}
+
+.shape.output-shape .inner {
+    clip-path: polygon(0 25px, 25px 0, 100% 0, 100% calc(100% - 25px), calc(100% - 25px) 100%, 0 100%);
+}
+
+.upload-section {
+    margin-bottom: 5px;
+}
+
+.launcher-progress-container {
+    margin-bottom: 50px;
+}
+
+.launcher-progress-container span {
+    letter-spacing: 1.7px;
+}
+
+.launcher-progress-container .labels {
+    margin-bottom: 16px;
+}
+
+.launcher-progress-container .progress-bar {
+    background-color: #ffe600 !important;
+}
+
+.launcher-file-section {
+    overflow: hidden;
+}
+
+.launcher-file-section .labels span:first-child {
+    letter-spacing: 2.13px;
+}
+
+.launcher-file-section .labels span:not(first-child) {
+    letter-spacing: 1.28px;
+}
+
+.launcher-file-section .labels {
+    margin-bottom: 10px;
+}
+
+.launcher-file-section .file-list {
+    background-color: black;
+    height: 100px;
+    /* overflow: auto; */
+}
+
+.launcher-file-section .add-more {
+    letter-spacing: 1.28px;
+    cursor: pointer;
+}
+
+div[data-id^='file-section-'] {
+    cursor: pointer;
+}
+
+.launcher-file-section .add-more img {
+    width: 17px;
+    height: 17px;
+}
+
+.launcher-file-section .icon-upload {
+    cursor: pointer;
+}
+
+.shape .header {
+    border-bottom: 1px solid #c4c4cd;
+}
+
+.inner .content {
+    /* total height minus the height of the bottom shape */
+    height: calc(100% - 20px);
+}
+
+.inner .content .header {
+    height: 60px;
+    padding: 22px 30px;
+    letter-spacing: 1.49px;
+    /* border-bottom : 1px solid #c4c4cd */
+}
+
+.shape .icon-refresh {
+    margin-right: 32.5px;
+}
+
+.shape .icon-download,
+.shape .icon-refresh {
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+}
+
+.output-section .panel-body {
+    margin: 0;
+}
+
+.output-section .nav-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px 40px;
+    border: 1px solid #c4c4cd;
+    color: #c4c4cd;
+    letter-spacing: 1.28px;
+    border-top: none;
+}
+
+.output-section .tab-link.active {
+    color: #ffe600;
+    border-bottom: none;
+}
+
+.app-launcher-option {
+    width: 55px;
+    height: 50px;
+    right: 0;
+    top: 40px;
+    cursor: pointer;
+}
+
+.app-launcher-option-expand {
+    top: 40px;
+    z-index: 2;
+    left: 100%;
+    transition: all 0.5s ease;
+    width: 226px;
+    height: 400px;
+    background-color: #0e6ceb96;
+}
+
+.app-launcher-option-expand.active {
+    left: calc(100% - 226px);
+}
+
+.app-launcher-option-expand .content {
+    margin: 20px 30px 30px 30px;
+}
+
+.app-launcher-option-expand .icon-menu-contract {
+    width: 28px;
+    height: 17px;
+    cursor: pointer;
+    margin-bottom: 18px;
+}
+
+.app-launcher-option-expand input,
+.app-launcher-option-expand button,
+.app-launcher-option-expand select {
+    background: white;
+    outline: none;
+    border: none;
+    height: 30px;
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.app-launcher-option-expand span {
+    margin-bottom: 20px;
+    letter-spacing: 0px;
+}
+
+.app-launcher-option-expand span.last {
+    margin-bottom: 30px;
+}
+
+.thumbs-container {
+    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.thumbs-container.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.thumbs-container .main {
+    fill: black;
+}
+
+.thumbs-container.active .main {
+    fill: #FFE600;
+}
+
+#file-list-carousel {
+    z-index: 2;
+}
+
+#file-list-carousel .carousel-control-prev,
+#file-list-carousel .carousel-control-next {
+    max-width: 20px;
+    height: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+    background: transparent;
+}
+
+#file-list-carousel .carousel-item {
+    margin-right: 10px;
+}
+
+#file-list-carousel .carousel-control-prev {
+    margin-left: -18px;
+}
+
+#file-list-carousel .carousel-control-next {
+    margin-right: -18px;
+}
+
+#file-list-carousel .carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E")
+}
+
+#file-list-carousel .carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E")
+}
+
+/* File upload drag/drop section starts here */
+
+.drop-zone-container,
+.file-display-container {
+    height: calc(100% - 30px);
+}
+
+.drop-zone {
+    height: 30%;
+    border: 1px dashed white;
+}
+
+.drop-zone img {
+    width: 33px;
+    height: 35px;
+    margin-bottom: 10px;
+}
+
+.drop-zone label {
+    cursor: pointer;
+}
+
+.drop-zone.is-dragover {
+    opacity: 0.3;
+}

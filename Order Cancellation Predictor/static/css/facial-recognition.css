@@ -1,0 +1,26 @@
+#facial-recognition-video {
+    border: 1px solid #334556;
+}
+
+#video-container {
+    background-color: #2b3c4b;
+}
+
+#facial-recognition-video,
+#video-container,
+#canvas-overlay {
+    width: 255px;
+    height: 170px;
+    clip-path: polygon(0 20px, 20px 0, 100% 0, 100% 100%, 100% 100%, 0 100%);
+}
+
+#canvas-overlay {
+    left: 0;
+}
+
+#back-to-user-pick {
+    width: 20px;
+    height: 20px;
+    background-image: url(../images/icon-back.png);
+    cursor: pointer;
+}

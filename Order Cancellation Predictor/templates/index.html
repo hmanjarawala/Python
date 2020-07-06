@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Space</title>
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./static/css/fontawesome.css">
+    <link rel="stylesheet" href="./static/css/website.css" />
+    <link rel="stylesheet" href="./static/css/app-launcher.css" />
+</head>
+
+<body>
+    <div id="website-layout" class="d-flex flex-column">
+        <nav id="top-navbar" class="navbar navbar-expand-lg">
+            <div class="navbar-brand bg-100"></div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav align-items-center ml-auto">
+                    <li class="nav-item">
+                        <div class="nav-link d-flex align-items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" viewBox="0 0 16 20">
+                                <g fill="none" fill-rule="evenodd">
+                                    <path d="M24 0L0 0 0 24 24 24z"
+                                        transform="translate(-4 -2) matrix(1 0 0 -1 0 24)" />
+                                    <path class="main" fill="#FFF" fill-rule="nonzero"
+                                        d="M19.59 17.916c-.06-.038-.504-.348-.95-1.286-.819-1.722-.99-4.147-.99-5.879v-.023c-.01-2.288-1.388-4.261-3.36-5.146V4.228C14.29 2.999 13.285 2 12.051 2h-.186C10.633 2 9.63 3 9.63 4.228v1.354c-1.98.888-3.36 2.87-3.36 5.169 0 1.732-.172 4.157-.99 5.88-.446.937-.891 1.247-.95 1.285-.25.115-.372.38-.315.648.058.271.313.458.59.458h4.321C8.949 20.668 10.3 22 11.959 22c1.659 0 3.01-1.332 3.034-2.978h4.32c.279 0 .534-.187.591-.458.058-.268-.065-.533-.314-.648zm-8.651-13.63c0-.586.505-1.062 1.126-1.062h.197c.62 0 1.126.476 1.126 1.062v.98c-.396-.078-.805-.118-1.225-.118-.42 0-.829.04-1.224.117v-.98zm1.02 16.49c-.998 0-1.813-.73-1.837-1.633h3.674c-.024.904-.838 1.633-1.837 1.633zm2.337-2.858H6.04c.1-.155.202-.332.304-.531.778-1.527 1.172-3.703 1.172-6.467 0-2.443 1.993-4.43 4.442-4.43 2.45 0 4.442 1.987 4.442 4.432v.021c.003 2.753.397 4.921 1.172 6.444.102.2.204.376.305.531h-3.582z"
+                                        transform="translate(-4 -2)" />
+                                </g>
+                            </svg>
+                            <span>Notifications</span>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="nav-link">
+                            <img src="./static/images/icon-user.png" class=" icon-user">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="d-flex">
+            <!-- Navigation bar starts here -->
+            <div id="navigation-container" class="d-flex flex-column">
+                <div class="d-flex p-2 navbar-icon-container active">
+                    <div class="mx-auto my-auto d-flex flex-column trigger">
+                        <svg class="navbar-icon mx-auto" xmlns="http://www.w3.org/2000/svg" width="28" height="29"
+                            viewBox="0 0 28 29">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M40 0L0 0 0 40 40 40z" transform="translate(-6 -6) matrix(1 0 0 -1 0 40)" />
+                                <g class="main" fill="#FFF" fill-rule="nonzero">
+                                    <path
+                                        d="M20.269 8.074c-1.435-1.434-3.76-1.434-5.195 0-1.434 1.435-1.434 3.76 0 5.195 1.435 1.435 3.76 1.435 5.195 0 .693-.686 1.083-1.621 1.083-2.597s-.39-1.91-1.083-2.598zm-3.701 3.7c.61.61 1.596.61 2.206 0 .216-.216.567-.216.784 0 .216.217.216.568 0 .785-.763.764-1.911.993-2.909.58-.998-.413-1.648-1.386-1.648-2.466 0-1.08.65-2.053 1.648-2.466.998-.412 2.146-.184 2.909.58.216.217.216.568 0 .784-.217.217-.568.217-.784 0-.613-.588-1.583-.578-2.184.023-.6.6-.61 1.57-.022 2.183v-.002zM27.915.545c-.024-.279-.245-.5-.523-.524-3.924-.088-7.817.708-11.39 2.328l9.586 9.587C27.21 8.362 28.005 4.47 27.915.545z"
+                                        transform="translate(-6 -6) translate(6 6)" />
+                                    <path
+                                        d="M25.497 11.225L17.27 3c-3.72 1.873-6.858 4.726-9.074 8.253l-3.64-.243c-.202-.016-.392.103-.463.293L1.28 18.49c-.076.193-.014.413.15.538.165.126.393.126.56.002l2.333-1.75 1.221.245 1.843 1.842-.506.91c-.627-.307-1.342-.379-2.018-.204-.923.23-1.69.87-2.083 1.738L.04 27.847c-.063.143-.05.31.037.44.086.132.233.21.39.21.066 0 .131-.014.191-.042l6.028-2.742c.867-.392 1.507-1.159 1.738-2.082.18-.697.096-1.436-.236-2.075l.865-.524 1.918 1.918.25 1.221-1.756 2.333c-.105.14-.121.328-.043.485.079.157.239.257.414.257.058 0 .116-.01.17-.032l7.186-2.811c.188-.074.307-.262.293-.464l-.236-3.64c3.524-2.217 6.375-5.354 8.247-9.074zM7.526 23.402c-.163.65-.613 1.19-1.223 1.466l-4.906 2.23 2.23-4.905c.277-.61.817-1.06 1.467-1.223.168-.043.341-.065.515-.065.285-.002.568.06.827.178l-.314.565c-.143.256-.293.57-.007.804.256.208.527.04.764-.095l.533-.301c.192.422.233.897.114 1.346zm-.224-10.67c-.059.104-.118.206-.176.313-.16.295-.314.591-.465.899-.051.1-.103.196-.153.299-.194.398-.382.804-.562 1.218-.052.118-.1.236-.152.362-.104.247-.21.491-.31.743l-1.181-.236c-.13-.026-.263.004-.369.084l-1.196.897 2.096-5.353 2.8.187c-.114.191-.222.391-.332.586zm.355 8.061l.668-1.2c.023-.02.045-.043.064-.069l2.207-4.01h2.387v2.057l-5.326 3.222zm3.531 4.964l.897-1.196c.08-.105.11-.24.084-.369l-.236-1.181c.255-.102.504-.21.755-.315.118-.048.236-.096.347-.144.416-.181.823-.37 1.224-.564.097-.047.189-.097.284-.145.309-.155.614-.31.912-.473.104-.057.204-.118.307-.172.198-.111.4-.22.59-.334l.189 2.799-5.353 2.094zm6.461-10.91c-1.907-.002-3.547-1.35-3.918-3.22-.37-1.87.631-3.742 2.394-4.471 1.762-.729 3.793-.11 4.852 1.475 1.058 1.586.848 3.7-.5 5.047-.75.75-1.767 1.17-2.828 1.169z"
+                                        transform="translate(-6 -6) translate(6 6)" />
+                                </g>
+                            </g>
+                        </svg>
+
+                        <span class="navbar-icon-text d-flex justify-content-center text-center">Launcher</span>
+                    </div>
+                </div>
+                <div class="d-flex p-2 navbar-icon-container">
+                    <div class="mx-auto my-auto d-flex flex-column trigger">
+                        <svg class="navbar-icon mx-auto" xmlns="http://www.w3.org/2000/svg" width="34" height="34"
+                            viewBox="0 0 34 34">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M0 0H39.96V39.96H0z" transform="translate(-3 -3)" />
+                                <g class="main" fill="#FFF" fill-rule="nonzero">
+                                    <path
+                                        d="M13.056 0H2.475C1.108 0 0 1.108 0 2.475v6.346c0 1.367 1.108 2.475 2.475 2.475h10.58c1.368 0 2.476-1.108 2.476-2.475V2.475C15.53 1.108 14.423 0 13.056 0zM13.056 13.24H2.475C1.108 13.24 0 14.346 0 15.713v14.82c0 1.366 1.108 2.474 2.475 2.474h10.58c1.368 0 2.476-1.108 2.476-2.475V15.71c-.003-1.365-1.11-2.47-2.475-2.47zM30.53 21.708H19.943c-1.367 0-2.475 1.108-2.475 2.475v6.35c0 1.367 1.108 2.475 2.475 2.475H30.53c1.367 0 2.475-1.108 2.475-2.475V24.18c-.002-1.366-1.11-2.471-2.475-2.471zM30.53 0H19.943c-1.367 0-2.475 1.108-2.475 2.475V17.29c0 1.367 1.108 2.475 2.475 2.475H30.53c1.367 0 2.475-1.108 2.475-2.475V2.475C33.004 1.108 31.896 0 30.53 0z"
+                                        transform="translate(-3 -3) translate(3 3)" />
+                                </g>
+                            </g>
+                        </svg>
+
+                        <span class="navbar-icon-text d-flex justify-content-center text-center">Dashboard</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Navigation bar ends here -->
+
+            <!-- Body of the page goes here - changing content -->
+            <div class="w-100 d-flex flex-column body-container">
+                <div class="launcher-progress-container d-flex flex-column align-items-center">
+                    <div class="w-75 d-flex flex-row labels">
+                        <span class="col-3 text-uppercase text-center ey-light-bold">Input</span>
+                        <span class="col-3 text-uppercase text-center ey-light-bold">Configure</span>
+                        <span class="col-3 text-uppercase text-center ey-light-bold">Analyse Input</span>
+                        <span class="col-3 text-uppercase text-center ey-light-bold">Output</span>
+                    </div>
+                    <div class="progress w-75">
+                        <div class="progress-bar bg-warning w-25" role="progressbar" aria-valuemin="0"
+                            aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="row no-gutters h-75 launcher-file-section position-relative">
+                    <div class="row col-11 no-gutters">
+                        <div class="d-flex col-6 flex-column pr-4">
+                            <div class="d-flex upload-section-container h-100 flex-column">
+                                <div class="d-flex flex-column h-100" id="file-section">
+                                    <div class="labels d-flex align-items-center">
+                                        <span class="ey-light-bold pt-20 text-uppercase">Input</span>
+                                        <span class="ey-light-bold pt-12 ml-auto">(.csv)</span>
+                                    </div>
+                                    <div class="upload-section h-100 shape output-shape d-flex">
+                                        <div class="inner m-auto">
+                                            <div class="content d-flex flex-column">
+                                                <div class=" header d-flex align-items-center">
+                                                    <span class="ey-light pt-14 file-name"></span>
+                                                    <img class="icon-refresh ml-auto mr-0"
+                                                        src="./static/images/icon-refresh.png">
+                                                </div>
+                                                <div
+                                                    class="file-display-container d-none justify-content-center align-items-center flex-column">
+                                                    <img class="img-fluid" src="" height="100dp" width="100dp">
+													<span class="ey-light pt-18" id="msg-display1"></span>
+													<br/>
+													<span class="ey-light-bold pt-20" id="msg-display2"></span>
+                                                </div>
+												
+                                                <div
+                                                    class="drop-zone-container d-flex justify-content-center align-items-center">
+                                                    <div class="drop-zone d-flex col-6">
+													
+                                                        <form class="w-100" enctype="multipart/form-data">
+                                                            <input class="d-none" type="file" name="files[]"
+                                                                id="drop-zone-file" />
+                                                            <label
+                                                                class="d-flex flex-column h-100 justify-content-center align-items-center"
+                                                                for="drop-zone-file">
+                                                                <img src="./static/images/icon-upload.png">
+                                                                <span class="pt-12">Drag files or click to upload</span>
+                                                            </label>
+															<br/>
+															
+															
+																
+                                                        </form>
+                                                    </div>
+                                                </div>
+												<!--<table>
+															<tr>
+															<td width="400dp" align="right" valign="middle"><label>Azure Subscription Key:&nbsp;&nbsp;&nbsp;</label>
+															</td>
+															<td valign="top"><input type="text" id="subscriptionKey" name="subscriptionKey" size="50">
+															</td>
+															<td width="200dp">
+																
+															</td>
+															</tr>
+															
+															</table>-->
+												
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+								
+								
+                            </div>
+							
+                        </div>
+						
+                        <div class="d-flex col-6 flex-column">
+                            <div class="labels d-flex align-items-center">
+                                <span class="ey-light-bold pt-20 text-uppercase">Output</span>
+                            </div>
+                            <div class="output-section shape output-shape h-100 d-flex position-relative">
+                                <div class="inner m-auto">
+                                    <div class="content d-flex flex-column">
+                                        <div class="header d-flex align-items-center">
+                                            <!-- <span class="ey-light pt-14 file-name"></span> -->
+                                            <img class="icon-refresh ml-auto" src="./static/images/icon-refresh.png">
+                                            <a id="dwnld"><img class="icon-download" src="./static/images/icon-download.png"></a>
+                                        </div>
+                                        <div
+                                            class="file-display-container d-none justify-content-center align-items-center flex-column">
+                                            <img class="img-fluid" height="100dp" width="100dp" src="">
+                                            <span class="ey-light pt-14 mt-2 license-plate-number"></span>
+                                        </div>
+                                        <div
+                                            class="d-flex align-items-center justify-content-center h-100 status-container">
+											<div
+                                                    class="file-display-container d-flex justify-content-center align-items-center flex-column">
+												<img class="img-fluid d-none" height="100dp" width="100dp" id="download-image" src="/static/images/download.jpg">
+												<br/>
+												<span class="output-status ey-light-bold pt-20" >Please upload a file</span>
+											</div>
+											<div id="resultDiv" style="display:none;">
+												{<br/>&nbsp;&nbsp;"name" : "<span id="name"></span>",<br/>&nbsp;&nbsp;"phoneNumber" : <span id="phoneNumber"></span>,<br/>&nbsp;&nbsp;"mailID" : "<span id="mailID"></span>"<br/>}
+													
+											</div>
+                                            <div class="loader d-none">
+                                                <div class="spinner-grow spinner-grow-sm" role="status">
+                                                    <span class="sr-only">Loading...</span>
+                                                </div>
+                                                <div class="spinner-grow spinner-grow-sm" role="status">
+                                                    <span class="sr-only">Loading...</span>
+                                                </div>
+                                                <div class="spinner-grow spinner-grow-sm" role="status">
+                                                    <span class="sr-only">Loading...</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="icon-expand"></div>
+                            </div>
+
+                        </div>
+						
+                    </div>
+					
+                </div>
+				<div class="download-actions d-flex">
+								<div class="action-button d-flex bg-100 justify-content-around" id="submitButton">
+									<span class="text-uppercase pt-12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								</div>
+							</div>
+            </div>
+        </div>
+    </div>
+    <script src="./static/js/jquery.js"></script>
+    <script src="./static/js/bootstrap.min.js"></script>
+    <script src="./static/js/main.js"></script>
+    <script src="./static/js/website.js"></script>
+    <script src="./static/js/order-cancellation-predictor.js"></script>
+</body>
+
+</html>
