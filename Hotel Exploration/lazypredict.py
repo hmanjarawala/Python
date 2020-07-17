@@ -258,10 +258,10 @@ class LazyClassifier:
         
         if(len(categorical_features)>0):
             categorical_low, categorical_high = get_card_split(X_train, categorical_features)
-            lst_transformer.append([
-                ('categorical_low', categorical_transformer_low, categorical_low),
-                ('categorical_high', categorical_transformer_high, categorical_high)
-            ])
+            if(len(categorical_low)>0):
+                lst_transformer.append(('categorical_low', categorical_transformer_low, categorical_low))
+            if(len(categorical_high)>0):
+                lst_transformer.append(('categorical_high', categorical_transformer_high, categorical_high))
 
         preprocessor = ColumnTransformer(
             transformers=lst_transformer)
@@ -474,10 +474,10 @@ class LazyRegressor:
         
         if(len(categorical_features)>0):
             categorical_low, categorical_high = get_card_split(X_train, categorical_features)
-            lst_transformer.append([
-                ('categorical_low', categorical_transformer_low, categorical_low),
-                ('categorical_high', categorical_transformer_high, categorical_high)
-            ])
+            if(len(categorical_low)>0):
+                lst_transformer.append(('categorical_low', categorical_transformer_low, categorical_low))
+            if(len(categorical_high)>0):
+                lst_transformer.append(('categorical_high', categorical_transformer_high, categorical_high))
 
         preprocessor = ColumnTransformer(
             transformers=lst_transformer)
