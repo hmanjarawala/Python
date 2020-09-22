@@ -14,5 +14,5 @@ setup(name="cinema",
       platforms = ["any"],
       license = "BSD",
       packages = find_packages(),
-      install_requires = ["Flask==0.10.1", "requests==2.20.0", "wsgiref==0.1.2" ],
+      install_requires = ["Flask==1.0", "requests==2.20.0", "wsgiref==0.1.2" ],
       )
