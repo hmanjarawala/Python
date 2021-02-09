@@ -1,0 +1,27 @@
+default:
+  player_name: Player
+  profile_created: '1979-05-27T15:32:00.000Z'
+  profile_name: Profile
+  sound: 'true'
+default_inventory:
+  items:
+  - health potion
+  - antidote
+  - mana potion
+  mage:
+  - - staff
+    - wand
+  - - robe
+    - hood
+  warrior:
+  - - sword
+    - shield
+  - - plate armor
+    - plate helm
+user:
+  profile:
+    class: warrior
+    name: profile1
+    player_name: player1
+  settings:
+    sound: 'false'
